@@ -27,25 +27,26 @@ public class BackStagePassesTests
     }
 
     [Theory]
-    [InlineData(10)]
     [InlineData(7)]
     [InlineData(6)]
-    public void QualityIncreasesByTwo_WhenSellInBetweenSixAndTen(int sellIn)
-    {
-        var item = new Item { Name = BackstagePassName, SellIn = sellIn, Quality = 20 };
-        BuildApp(item).UpdateQuality();
-        Assert.Equal(22, item.Quality);
-    }
-
-    [Theory]
     [InlineData(5)]
+    [InlineData(4)]
     [InlineData(3)]
-    [InlineData(1)]
-    public void QualityIncreasesByThree_WhenSellInFiveOrBelow(int sellIn)
+    public void QualityIncreasesByTwo_WhenSellInBetweenSevenAndThree(int sellIn)
     {
         var item = new Item { Name = BackstagePassName, SellIn = sellIn, Quality = 20 };
         BuildApp(item).UpdateQuality();
         Assert.Equal(23, item.Quality);
+    }
+
+    [Theory]
+    [InlineData(2)]
+    [InlineData(1)]
+    public void QualityIncreasesByThree_WhenSellInTwoOrBelow(int sellIn)
+    {
+        var item = new Item { Name = BackstagePassName, SellIn = sellIn, Quality = 20 };
+        BuildApp(item).UpdateQuality();
+        Assert.Equal(24, item.Quality);
     }
 
     [Fact]
