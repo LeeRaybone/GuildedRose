@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace GildedRoseKata.Updaters;
+﻿namespace GildedRoseKata.Updaters;
 
 public class NormalItemUpdater : ItemUpdater
 {
