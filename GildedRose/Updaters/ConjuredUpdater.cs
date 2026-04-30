@@ -8,6 +8,7 @@ public class ConjuredUpdater : ItemUpdater
 
     public override void Update()
     {
-        throw new NotImplementedException();
+        DecrementSellIn(); // Decrement the sell in days by 1
+        AdjustQuality(Item.SellIn < 0 ? -4 : -2); // Update the quality - if past sell by date decrease by 4, otherwise by 2 (x2 as fast as other items)
     }
 }
