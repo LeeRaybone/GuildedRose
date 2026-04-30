@@ -17,7 +17,6 @@ public class CounjuredItemsTests
         Assert.Equal(4, item.SellIn);
     }   
     
-    //TODO: To be implmented will fail until then
     [Fact]
     public void QualityDegradesByTwo_BeforeSellByDate()
     {
@@ -26,7 +25,6 @@ public class CounjuredItemsTests
         Assert.Equal(8, item.Quality);
     }
 
-    //TODO: To be implmented will fail until then
     [Fact]
     public void QualityDegradesByFour_AfterSellByDate()
     {
@@ -42,5 +40,14 @@ public class CounjuredItemsTests
         BuildApp(item).UpdateQuality();
         Assert.Equal(0, item.Quality);
     }
+
+    [Fact]
+    public void QualityNeverExceedsForty()
+    {
+        var item = new Item { Name = "Conjured Mana Cake", SellIn = 5, Quality = 40 };
+        BuildApp(item).UpdateQuality();
+        Assert.True(item.Quality <= 40);
+    }
+
 }
 

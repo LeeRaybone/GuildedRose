@@ -50,4 +50,12 @@ public class NormalItemsTests
         Assert.Equal(0, item.Quality);
     }
 
+    [Fact]
+    public void QualityNeverExceedsForty()
+    {
+        var item = new Item { Name = "Normal Item", SellIn = 5, Quality = 40 };
+        BuildApp(item).UpdateQuality();
+        Assert.True(item.Quality <= 40);
+    }
+
 }

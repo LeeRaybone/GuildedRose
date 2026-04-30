@@ -13,5 +13,5 @@ public abstract class ItemUpdater
     protected void DecrementSellIn() => Item.SellIn--; // shared helper -- DRY
 
     protected void AdjustQuality(int amount) => // pass a positive int to increase and negaative to decrease
-        Item.Quality = Math.Clamp(Item.Quality + amount, 0, 50); 
+        Item.Quality = Math.Clamp(Item.Quality + amount, 0, 40); // Clamp ensures no Quality can exceed 40
 }

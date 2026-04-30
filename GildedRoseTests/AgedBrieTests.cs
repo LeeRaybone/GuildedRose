@@ -34,11 +34,11 @@ public class AgedBrieTests
     }
 
     [Fact]
-    public void QualityNeverExceedsFifty()
+    public void QualityNeverExceedsForty()
     {
-        var item = new Item { Name = "Aged Brie", SellIn = 5, Quality = 50 };
+        var item = new Item { Name = "Aged Brie", SellIn = 5, Quality = 40 };
         BuildApp(item).UpdateQuality();
-        Assert.Equal(50, item.Quality);
+        Assert.Equal(40, item.Quality);
     }
 
     [Fact]
@@ -46,7 +46,7 @@ public class AgedBrieTests
     {
         var item = new Item { Name = "Aged Brie", SellIn = 0, Quality = 49 };
         BuildApp(item).UpdateQuality();
-        Assert.Equal(50, item.Quality);
+        Assert.Equal(40, item.Quality);
     }
 }
 

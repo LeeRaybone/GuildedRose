@@ -37,11 +37,11 @@ public class GildedRoseTests
     }
 
     [Fact]
-    public void AnyItem_QualityNeverExceedsFifty_WhenAlreadyAtFifty()
+    public void AnyItem_QualityNeverExceedsForty_WhenAlreadyAtForty()
     {
-        var item = new Item { Name = "Aged Brie", SellIn = 5, Quality = 50 };
+        var item = new Item { Name = "Aged Brie", SellIn = 5, Quality = 40 };
         BuildApp(item).UpdateQuality();
-        Assert.Equal(50, item.Quality);
+        Assert.Equal(40, item.Quality);
     }
 
 

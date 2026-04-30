@@ -57,20 +57,36 @@ public class BackStagePassesTests
         Assert.Equal(0, item.Quality);
     }
 
-    [Fact]
-    public void QualityNeverExceedsFifty_NearLowerThreshold()
+    [Theory]
+    [InlineData(2)]
+    [InlineData(1)]
+    public void QualityNeverExceedsForty_WhenSellInIsTwoOrBelow(int sellIn)
     {
-        var item = new Item { Name = BackstagePassName, SellIn = 5, Quality = 49 };
+        var item = new Item { Name = BackstagePassName, SellIn = sellIn, Quality = 38 };
         BuildApp(item).UpdateQuality();
-        Assert.Equal(50, item.Quality);
+        Assert.Equal(40, item.Quality);
+    }
+
+
+    [Theory]
+    [InlineData(7)]
+    [InlineData(6)]
+    [InlineData(5)]
+    [InlineData(4)]
+    [InlineData(3)]
+    public void QualityNeverExceedsForty_WhenSellInIsBetweenSevenAndThree(int sellIn)
+    {
+        var item = new Item { Name = BackstagePassName, SellIn = sellIn, Quality = 39 };
+        BuildApp(item).UpdateQuality();
+        Assert.Equal(40, item.Quality);
     }
 
     [Fact]
-    public void QualityNeverExceedsFifty_NearUpperThreshold()
+    public void QualityNeverExceedsForty_WhenSellInIsAboveSeven()
     {
-        var item = new Item { Name = BackstagePassName, SellIn = 10, Quality = 49 };
+        var item = new Item { Name = BackstagePassName, SellIn = 10, Quality = 39 };
         BuildApp(item).UpdateQuality();
-        Assert.Equal(50, item.Quality);
+        Assert.Equal(40, item.Quality);
     }
 }
 

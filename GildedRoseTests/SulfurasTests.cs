@@ -31,5 +31,13 @@ public class SulfurasTests
         BuildApp(item).UpdateQuality();
         Assert.Equal(-1, item.SellIn);
     }
+
+    [Fact]
+    public void QualityIsAllowedToExceedForty_AsItIsLegendary()
+    {
+        var item = new Item { Name = "Sulfuras, Hand of Ragnaros", SellIn = 0, Quality = 80 };
+        BuildApp(item).UpdateQuality();
+        Assert.Equal(80, item.Quality);
+    }
 }
 
