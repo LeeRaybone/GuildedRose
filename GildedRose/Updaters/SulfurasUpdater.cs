@@ -6,8 +6,5 @@ public class SulfurasUpdater : ItemUpdater
 {
     public SulfurasUpdater(Item item) : base(item) { }
 
-    public override void Update()
-    {
-        throw new NotImplementedException();
-    }
+    public override void Update() { } //Doesn't need to do anything at this moment
 }
