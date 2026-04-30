@@ -49,5 +49,13 @@ public class CounjuredItemsTests
         Assert.True(item.Quality <= 40);
     }
 
+    [Fact]
+    public void WorksForAnyConjuredName() // Test an additonal Conjured Item
+    {
+        var item = new Item { Name = "Conjured Banana Cake", SellIn = 5, Quality = 10 };
+        BuildApp(item).UpdateQuality();
+        Assert.Equal(8, item.Quality);
+    }
+
 }
 
