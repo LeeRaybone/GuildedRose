@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace GildedRoseKata.Updaters
+namespace GildedRoseKata.Updaters;
 
 /// <summary>
 /// Updater for Conjured items.
