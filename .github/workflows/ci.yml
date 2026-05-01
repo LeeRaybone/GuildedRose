@@ -27,3 +27,9 @@ jobs:
 
       - name: Run tests
         run: dotnet test --no-build --verbosity normal
+
+      - name: Install DocFX
+        run: dotnet tool install -g docfx
+
+      - name: Build documentation
+        run: docfx build docfx.json

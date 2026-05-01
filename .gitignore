@@ -3,13 +3,9 @@
 ################################################################################
 
 /.vs
-/GuildedRose/bin/Debug/net8.0
-/GuildedRose/obj
-/GuildedRose.Unit.Test/bin/Debug/net8.0
-/GuildedRose.Unit.Test/obj
-/GuildedRose/bin/Debug/net9.0
-/GuildedRose.Unit.Test/bin/Debug/net9.0
 /GildedRoseTests/obj
 /GildedRose/obj
 /GildedRose/bin/Debug/net8.0
 /GildedRoseTests/bin/Debug/net8.0
+_site/
+docs/api/

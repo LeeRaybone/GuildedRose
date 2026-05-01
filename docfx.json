@@ -1,0 +1,34 @@
+{
+  "metadata": [
+    {
+      "src": [
+        {
+          "files": [ "GildedRose/**.csproj" ],
+          "src": "."
+        }
+      ],
+      "dest": "docs/api"
+    }
+  ],
+  "build": {
+    "template": [
+      "default",
+      "templates/custom"
+    ],
+    "content": [
+      {
+        "files": [ "*.md", "toc.yml" ],
+        "src": "docs"
+      },
+      {
+        "files": [ "api/**.yml", "api/index.md" ],
+        "src": "docs"
+      }
+    ],
+    "dest": "_site",
+    "globalMetadata": {
+      "_appName": "Gilded Rose",
+      "_appTitle": "Gilded Rose — C# Refactoring Solution - Lee Raybone"
+    }
+  }
+}
