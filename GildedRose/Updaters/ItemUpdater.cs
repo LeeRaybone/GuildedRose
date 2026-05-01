@@ -2,16 +2,42 @@
 
 namespace GildedRoseKata.Updaters;
 
+/// <summary>
+/// Abstract base class for all item updaters.
+/// Each item type has its own concrete implementation responsible 
+/// for defining how that item's quality and sell-in value change each day.
+/// </summary>
 public abstract class ItemUpdater
-{
-    protected readonly Item Item; // protected so it can be access, but read only so cant be reassigned
+{    
+    /// <summary>
+    /// The item being managed by this updater.
+    /// Protected so subclasses can access it, readonly so it cannot be reassigned.
+    /// </summary>
+    protected readonly Item Item;
 
+    /// <summary>
+    /// Initialises a new instance of <see cref="ItemUpdater"/> with the given item.
+    /// </summary>
+    /// <param name="item">The item to be updated each day.</param>
     protected ItemUpdater(Item item) => Item = item;
 
-    public abstract void Update(); // forces individual update logic to need to be implemented
+    /// <summary>
+    /// Applies the daily update logic for this item type.
+    /// Must be implemented by each concrete updater class.
+    /// </summary>
+    public abstract void Update();
 
-    protected void DecrementSellIn() => Item.SellIn--; // shared helper -- DRY
+    /// <summary>
+    /// Decrements the item's SellIn value by 1.
+    /// Shared helper to avoid repetition across subclasses.
+    /// </summary>
+    protected void DecrementSellIn() => Item.SellIn--;
 
-    protected void AdjustQuality(int amount) => // pass a positive int to increase and negaative to decrease
-        Item.Quality = Math.Clamp(Item.Quality + amount, 0, 40); // Clamp ensures no Quality can exceed 40
+    /// <summary>
+    /// Adjusts the item's Quality by the given amount, clamped between 0 and 40.
+    /// Pass a positive integer to increase quality, negative to decrease.
+    /// </summary>
+    /// <param name="amount">The amount to adjust quality by. Can be positive or negative.</param>
+    protected void AdjustQuality(int amount) =>
+        Item.Quality = Math.Clamp(Item.Quality + amount, 0, 40);
 }
